@@ -3,6 +3,11 @@
  */
 
 
-//--------------home------------------
+//--------------修改颜色------------------
 
 export const CHANGEBGCOLOR = 'CHANGEBGCOLOR';
+
+
+//发起登录
+
+export const LOGIN = 'LOGIN';

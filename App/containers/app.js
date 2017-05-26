@@ -10,8 +10,13 @@ import {
 import { StackNavigator, TabNavigator, TabBarBottom } from 'react-navigation';
 
 
-import Two from './message';
-import One from './home';
+import Message from './message';
+import Home from './home';
+import Find from './find';
+import New from './new';
+import Mine from './mine';
+
+import LoginView from '../components/loginView'
 
 export default class RootScene extends Component {
 
@@ -32,25 +37,61 @@ export default class RootScene extends Component {
 }
 
 const Tab = TabNavigator({
-        One: {
-            screen: One,
+        Home: {
+            screen: Home,
             navigationOptions: ({ navigation }) => ({
                 tabBarLabel: '首页',
                 tabBarIcon: ({ focused, tintColor }) => (
                     <Image
-                        source={focused ?  require('../image/home_selected.png') : require('../image/home.png')}
+                        source={focused ?  require('../../image/home_selected.png') : require('../../image/home.png')}
                         style={{ width: 25, height: 25 }}
                     />
                 )
             }),
         },
-        Two: {
-            screen: Two,
+        Message: {
+            screen: Message,
             navigationOptions: ({ navigation }) => ({
                 tabBarLabel: '消息',
                 tabBarIcon: ({ focused, tintColor }) => (
                     <Image
-                        source={focused ? require('../image/message_selcted.png') : require('../image/message.png') }
+                        source={focused ? require('../../image/message_selcted.png') : require('../../image/message.png') }
+                        style={{ width: 25, height: 25 }}
+                    />
+                )
+            }),
+        },
+        New: {
+            screen: New,
+            navigationOptions: ({ navigation }) => ({
+                tabBarLabel: ' ',
+                tabBarIcon: ({ focused, tintColor }) => (
+                    <Image
+                        source={focused ? require('../../image/new_selected.png') : require('../../image/new.png') }
+                        style={{ width: 60, height: 45 ,marginBottom:-10}}
+                    />
+                )
+            }),
+        },
+        Find: {
+            screen: Find,
+            navigationOptions: ({ navigation }) => ({
+                tabBarLabel: '发现',
+                tabBarIcon: ({ focused, tintColor }) => (
+                    <Image
+                        source={focused ? require('../../image/find_selected.png') : require('../../image/find.png') }
+                        style={{ width: 25, height: 25 }}
+                    />
+                )
+            }),
+        },
+        Mine: {
+            screen: Mine,
+            navigationOptions: ({ navigation }) => ({
+                tabBarLabel: '我的',
+                tabBarIcon: ({ focused, tintColor }) => (
+                    <Image
+                        source={focused ? require('../../image/mine_selected.png') : require('../../image/mine.png') }
                         style={{ width: 25, height: 25 }}
                     />
                 )
@@ -75,7 +116,10 @@ const Tab = TabNavigator({
 const Navigator = StackNavigator({
     Tab: {
         screen: Tab,
-
     },
+    LoginView: {
+        screen: LoginView,
+    }
+
 
 });

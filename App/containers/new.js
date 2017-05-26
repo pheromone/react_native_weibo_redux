@@ -3,16 +3,12 @@
  */
 
 import React,{Component} from 'react';
-import {
-    View,
-    Image
-}from 'react-native'
 import { bindActionCreators } from  'redux';
-import MessageView from '../components/messageView';
-import * as MessageAction from '../actions/messageAction';
+import NewView from '../components/newView';
+import * as NewAction from '../actions/newAction';
 import { connect } from 'react-redux';
 
-class Message extends Component {
+class New extends Component {
     // 构造
     constructor(props) {
         super(props);
@@ -22,8 +18,8 @@ class Message extends Component {
     render() {
         const { state, actions } = this.props;
         return (
-            <MessageView
-                MessageAction = {state.logined}
+            <NewView
+                NewAction = {state.bgColor}
                 {...state}
                 {...actions}
             />
@@ -32,10 +28,11 @@ class Message extends Component {
 }
 
 export default connect(state => ({
-        state:state.MessageAction
+        state:state.NewAction
     }),
     (dispatch) => ({
-        actions: bindActionCreators(MessageAction,dispatch)
+        actions: bindActionCreators(NewAction,dispatch)
     })
-)(Message);
+)(New);
+
 

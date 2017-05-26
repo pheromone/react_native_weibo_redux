@@ -1,18 +1,17 @@
 /**
  * Created by shaotingzhou on 2017/5/18.
  */
-
-import React,{Component} from 'react';
 import {
     View,
     Image
 }from 'react-native'
+import React,{Component} from 'react';
 import { bindActionCreators } from  'redux';
-import MessageView from '../components/messageView';
-import * as MessageAction from '../actions/messageAction';
+import FindView from '../components/findView';
+import * as FindAction from '../actions/findAction';
 import { connect } from 'react-redux';
 
-class Message extends Component {
+class Find extends Component {
     // 构造
     constructor(props) {
         super(props);
@@ -22,8 +21,8 @@ class Message extends Component {
     render() {
         const { state, actions } = this.props;
         return (
-            <MessageView
-                MessageAction = {state.logined}
+            <FindView
+                FindAction = {state.bgColor}
                 {...state}
                 {...actions}
             />
@@ -32,10 +31,9 @@ class Message extends Component {
 }
 
 export default connect(state => ({
-        state:state.MessageAction
+        state:state.FindAction
     }),
     (dispatch) => ({
-        actions: bindActionCreators(MessageAction,dispatch)
+        actions: bindActionCreators(FindAction,dispatch)
     })
-)(Message);
-
+)(Find);
